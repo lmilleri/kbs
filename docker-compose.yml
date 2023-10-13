@@ -4,7 +4,7 @@ services:
     # build:
     #   context: .
     #   dockerfile: ./docker/Dockerfile.coco-as-grpc
-    image: ghcr.io/confidential-containers/key-broker-service:latest
+    image: quay.io/rh_ee_lmilleri/cc/key-broker:latest
     command: [
         "/usr/local/bin/kbs",
         "--config-file",
@@ -21,7 +21,7 @@ services:
     - as
 
   as:
-    image: ghcr.io/confidential-containers/attestation-service:latest
+    image: quay.io/rh_ee_lmilleri/cc/attestation-service:latest
     ports:
     - "50004:50004"
     restart: always
@@ -42,7 +42,7 @@ services:
     - rvps
 
   rvps:
-    image: ghcr.io/confidential-containers/reference-value-provider-service:latest
+    image: quay.io/rh_ee_lmilleri/cc/rvps:latest
     restart: always # keep the server running
     ports:
       - "50003:50003"
