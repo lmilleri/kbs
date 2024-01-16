@@ -12,6 +12,7 @@ RUN wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
 
 ENV PATH="/usr/local/go/bin:${PATH}"
+ENV RUST_LOG="debug"
 
 # Install TPM Build Dependencies
 RUN apt-get update && apt-get install -y protobuf-compiler clang libtss2-dev

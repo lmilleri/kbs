@@ -81,6 +81,8 @@ impl PolicyEngine for OPA {
 
         let reference = serde_json::json!({ "reference": reference_data_map }).to_string();
 
+        info!("input: {}", input);
+
         let reference_go = GoString {
             p: reference.as_ptr() as *const c_char,
             n: reference.len() as isize,
